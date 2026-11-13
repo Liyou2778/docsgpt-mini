@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>docsgpt-mini · 离线文档问答</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">◈</span>
+      <div>
+        <h1>docsgpt-mini</h1>
+        <p class="subtitle">离线混合检索 · 可溯源引用 · 零 npm 构建</p>
+      </div>
+    </div>
+    <div class="topright">
+      <div class="health" id="health">连接中…</div>
+      <button class="ghost" id="refreshBtn" title="刷新文档与索引状态">↻ 刷新</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Column 1: knowledge base -->
+    <section class="panel docs-panel">
+      <h2>知识库 <span class="count" id="docCount">0</span></h2>
+
+      <div class="ingest">
+        <label class="file-pick">
+          <input type="file" id="fileInput" accept=".md,.markdown,.txt" hidden />
+          <span>选择 .md / .txt 文件</span>
+        </label>
+        <input type="text" id="titleInput" class="text-input" placeholder="标题（可选，默认取文件名或首行）" />
+        <textarea id="pasteInput" class="text-input" rows="4" placeholder="或直接粘贴文本…"></textarea>
+        <button class="primary" id="ingestBtn">入库</button>
+        <div class="ingest-hint" id="ingestHint"></div>
+      </div>
+
+      <ul class="doc-list" id="docList"></ul>
+      <p class="empty" id="docEmpty">还没有文档，先上传或粘贴一份吧。</p>
+    </section>
+
+    <!-- Column 2: chat -->
+    <section class="panel chat-panel">
+      <h2>问答</h2>
+      <div class="chat-log" id="chatLog">
+        <div class="welcome">
+          <p>问点什么吧。回答里的 <code>[1]</code> 可以点击，右侧会高亮对应的原始分块。</p>
+          <div class="samples" id="samples">
+            <button data-q="BM25 中的 k1 参数有什么作用？">BM25 的 k1 参数？</button>
+            <button data-q="余弦相似度是怎么计算的？">余弦相似度怎么算？</button>
+            <button data-q="引用可溯源率是怎么统计的？">引用可溯源率？</button>
+          </div>
+        </div>
+      </div>
+      <div class="composer">
+        <select id="strategySelect" title="混合策略">
+          <option value="weighted">加权融合</option>
+          <option value="rrf">RRF</option>
+        </select>
+        <label class="alpha-wrap" id="alphaWrap">
+          α <input type="range" id="alphaRange" min="0" max="1" step="0.05" value="0.5" />
+          <span id="alphaValue">0.50</span>
+        </label>
+        <select id="topKSelect" title="返回条数">
+          <option value="3">top 3</option>
+          <option value="5" selected>top 5</option>
+          <option value="8">top 8</option>
+        </select>
+        <input type="text" id="questionInput" class="text-input" placeholder="输入问题，例如：为什么引用必须可溯源？" />
+        <button class="primary" id="askBtn">提问</button>
+      </div>
+    </section>
+
+    <!-- Column 3: sources / citations -->
+    <section class="panel sources-panel">
+      <h2>来源与分数拆解</h2>
+      <p class="hint">点击回答里的引用编号，或点击下面的卡片，可定位并高亮原始分块。</p>
+      <div id="sourceList" class="source-list">
+        <p class="empty" id="sourceEmpty">提问后这里会显示引用来源。</p>
+      </div>
+      <details class="diagnostics" id="diagnostics" hidden>
+        <summary>检索诊断</summary>
+        <pre id="diagnosticsBody"></pre>
+      </details>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

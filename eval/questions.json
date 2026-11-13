@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "question": "BM25 中的 k1 参数有什么作用？",
+    "expected_doc": "01-bm25-原理.md",
+    "keywords": ["k1", "饱和"]
+  },
+  {
+    "id": 2,
+    "question": "BM25 的 b 参数如何影响文档长度归一化？",
+    "expected_doc": "01-bm25-原理.md",
+    "keywords": ["归一化", "0.75"]
+  },
+  {
+    "id": 3,
+    "question": "余弦相似度是怎么计算的？",
+    "expected_doc": "02-向量检索与余弦相似度.md",
+    "keywords": ["点积", "模长"]
+  },
+  {
+    "id": 4,
+    "question": "为什么文本向量要先做 L2 归一化？",
+    "expected_doc": "02-向量检索与余弦相似度.md",
+    "keywords": ["L2", "归一化"]
+  },
+  {
+    "id": 5,
+    "question": "哈希向量化如何保证同一个词总是落到同一个桶？",
+    "expected_doc": "02-向量检索与余弦相似度.md",
+    "keywords": ["hashlib", "确定性"]
+  },
+  {
+    "id": 6,
+    "question": "混合检索加权融合里的 alpha 参数代表什么？",
+    "expected_doc": "03-混合检索与RRF.md",
+    "keywords": ["alpha", "权重"]
+  },
+  {
+    "id": 7,
+    "question": "RRF 倒数排名融合的公式是什么？",
+    "expected_doc": "03-混合检索与RRF.md",
+    "keywords": ["倒数排名融合", "rank"]
+  },
+  {
+    "id": 8,
+    "question": "中文检索为什么可以使用二元组分词？",
+    "expected_doc": "04-中文分词与二元组.md",
+    "keywords": ["二元组", "词典"]
+  },
+  {
+    "id": 9,
+    "question": "停用词在检索中起什么作用？",
+    "expected_doc": "04-中文分词与二元组.md",
+    "keywords": ["停用词", "噪声"]
+  },
+  {
+    "id": 10,
+    "question": "文本分块时 chunk_size 和重叠该怎么设置？",
+    "expected_doc": "05-文本分块策略.md",
+    "keywords": ["chunk_size", "重叠"]
+  },
+  {
+    "id": 11,
+    "question": "分块时如何避免把完整句子切断？",
+    "expected_doc": "05-文本分块策略.md",
+    "keywords": ["句子边界", "滑动窗口"]
+  },
+  {
+    "id": 12,
+    "question": "RAG 回答里的引用有什么意义？",
+    "expected_doc": "06-引用溯源与RAG.md",
+    "keywords": ["引用", "幻觉"]
+  },
+  {
+    "id": 13,
+    "question": "引用可溯源率是怎么统计的？",
+    "expected_doc": "06-引用溯源与RAG.md",
+    "keywords": ["引用可溯源率", "引用标记数"]
+  },
+  {
+    "id": 14,
+    "question": "FastAPI 中如何定义路由？",
+    "expected_doc": "07-FastAPI入门.md",
+    "keywords": ["装饰器", "app.get"]
+  },
+  {
+    "id": 15,
+    "question": "SQLite 的 WAL 模式有什么好处？",
+    "expected_doc": "08-SQLite事务与索引.md",
+    "keywords": ["WAL", "并发"]
+  },
+  {
+    "id": 16,
+    "question": "重复上传同一份文档为什么要做幂等设计？",
+    "expected_doc": "09-异步入库流水线.md",
+    "keywords": ["幂等", "内容哈希"]
+  },
+  {
+    "id": 17,
+    "question": "Recall@5 指标如何定义？",
+    "expected_doc": "10-检索评估指标.md",
+    "keywords": ["Recall@5", "命中"]
+  },
+  {
+    "id": 18,
+    "question": "Docker 镜像分层有什么好处？",
+    "expected_doc": "11-Docker容器基础.md",
+    "keywords": ["分层", "构建缓存"]
+  },
+  {
+    "id": 19,
+    "question": "Git 中 rebase 和 merge 有什么区别？",
+    "expected_doc": "12-Git分支与合并.md",
+    "keywords": ["rebase", "merge"]
+  },
+  {
+    "id": 20,
+    "question": "HTTP 304 状态码表示什么？",
+    "expected_doc": "13-HTTP缓存与状态码.md",
+    "keywords": ["304", "协商缓存"]
+  }
+]

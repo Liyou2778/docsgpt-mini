@@ -1,0 +1,4263 @@
+{
+  "generated_at": "2026-11-13T13:32:25+00:00",
+  "base_url": "http://127.0.0.1:8202",
+  "corpus": {
+    "files": 15,
+    "documents": 15,
+    "chunks": 30
+  },
+  "config": {
+    "top_k": 5,
+    "alpha": 0.5,
+    "strategies": [
+      "weighted",
+      "rrf"
+    ],
+    "llm_provider": "mock",
+    "questions": 20,
+    "chunk_size": 512,
+    "chunk_overlap_ratio": 0.1,
+    "vector_dim": 512,
+    "bm25_k1": 1.5,
+    "bm25_b": 0.75
+  },
+  "idempotency": {
+    "first_created": true,
+    "second_created": false,
+    "same_doc_id": true,
+    "cleaned_up": true
+  },
+  "runs": {
+    "weighted": {
+      "metrics": {
+        "questions": 20,
+        "recall_at_5": 1.0,
+        "recall_hits": 20,
+        "markers": 55,
+        "resolved_markers": 55,
+        "citation_traceability_rate": 1.0,
+        "answer_level_traceability_rate": 1.0,
+        "answers_without_citations": 0,
+        "avg_latency_ms": 4.324,
+        "p50_latency_ms": 3.564,
+        "p95_latency_ms": 5.622,
+        "avg_retrieval_latency_ms": 0.835,
+        "avg_citations": 2.75
+      },
+      "records": [
+        {
+          "id": 1,
+          "question": "BM25 中的 k1 参数有什么作用？",
+          "expected_doc": "01-bm25-原理.md",
+          "expected_doc_id": "d3c8b70825734cc6",
+          "keywords": [
+            "k1",
+            "饱和"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 8.974231,
+              "vector_score": 0.223004,
+              "keyword_matched": [
+                "k1",
+                "饱和"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.677033,
+              "bm25_score": 6.64534,
+              "vector_score": 0.13683,
+              "keyword_matched": [
+                "k1",
+                "饱和"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.420137,
+              "bm25_score": 4.56497,
+              "vector_score": 0.073948,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "ba8827dd8ca94212-c00000",
+              "doc_id": "ba8827dd8ca94212",
+              "doc_title": "15-单元测试与pytest",
+              "seq": 0,
+              "score": 0.406375,
+              "bm25_score": 3.864769,
+              "vector_score": 0.08521,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.365487,
+              "bm25_score": 4.008151,
+              "vector_score": 0.06341,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：公式中 k1 参数控制饱和的速度，k1 越大，饱和越慢，词频高的文档优势越明显[1] 所有查询词的贡献相加就是 BM25 总分。[2] BM25 的分数是无界的正数，可能几十也可能几百[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 11.349,
+          "latency_ms": 15.71,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 2,
+          "question": "BM25 的 b 参数如何影响文档长度归一化？",
+          "expected_doc": "01-bm25-原理.md",
+          "expected_doc_id": "d3c8b70825734cc6",
+          "keywords": [
+            "归一化",
+            "0.75"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 32.407331,
+              "vector_score": 0.335241,
+              "keyword_matched": [
+                "归一化",
+                "0.75"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.54186,
+              "bm25_score": 12.546147,
+              "vector_score": 0.233522,
+              "keyword_matched": [
+                "归一化"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.50997,
+              "bm25_score": 14.742556,
+              "vector_score": 0.18942,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.407045,
+              "bm25_score": 13.521415,
+              "vector_score": 0.133043,
+              "keyword_matched": [
+                "归一化"
+              ]
+            },
+            {
+              "rank": 5,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 1,
+              "score": 0.357703,
+              "bm25_score": 8.748156,
+              "vector_score": 0.149337,
+              "keyword_matched": [
+                "归一化"
+              ]
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：b 参数控制文档长度归一化的强度，取值范围是 0 到 1。[1] 加权融合的公式是 score = alpha * 归一化后的 BM25 分数 + (1 - alpha) * 归一化后的向量分数。[2] 综合起来，一个查询词对文档的贡献等于 IDF 乘以饱和后的词频项 tf * (k1 + 1) / (tf + k1 * (1 - b + b * dl / avgdl))，其中 dl 是文档长度，avgdl 是平均文档长度。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.348,
+          "latency_ms": 4.007,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 3,
+          "question": "余弦相似度是怎么计算的？",
+          "expected_doc": "02-向量检索与余弦相似度.md",
+          "expected_doc_id": "dda755a9e7cc47e0",
+          "keywords": [
+            "点积",
+            "模长"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 0,
+              "score": 0.940302,
+              "bm25_score": 25.78881,
+              "vector_score": 0.119613,
+              "keyword_matched": [
+                "点积",
+                "模长"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.751564,
+              "bm25_score": 12.975048,
+              "vector_score": 0.13583,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.554122,
+              "bm25_score": 13.848784,
+              "vector_score": 0.077591,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d26d9f2138bf437c-c00001",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 1,
+              "score": 0.240831,
+              "bm25_score": 0.0,
+              "vector_score": 0.065424,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 1,
+              "score": 0.225604,
+              "bm25_score": 0.0,
+              "vector_score": 0.061288,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：余弦相似度衡量两个向量方向上的接近程度，计算公式是两个向量的点积除以它们模长的乘积。[1] 余弦相似度的分数在负一到一之间。[2] 可以在二元组之外，额外维护一个小型领域词典，把「余弦相似度」「倒数排名融合」「引用溯源」这类术语整体作为一个词项加入索引。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_title": "02-向量检索与余弦相似度",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.375,
+          "latency_ms": 3.735,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 4,
+          "question": "为什么文本向量要先做 L2 归一化？",
+          "expected_doc": "02-向量检索与余弦相似度.md",
+          "expected_doc_id": "dda755a9e7cc47e0",
+          "keywords": [
+            "L2",
+            "归一化"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 21.370812,
+              "vector_score": 0.250903,
+              "keyword_matched": [
+                "l2",
+                "归一化"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.646779,
+              "bm25_score": 10.32472,
+              "vector_score": 0.203341,
+              "keyword_matched": [
+                "归一化"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 0.445574,
+              "bm25_score": 8.165721,
+              "vector_score": 0.127722,
+              "keyword_matched": [
+                "归一化"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00001",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 1,
+              "score": 0.378392,
+              "bm25_score": 7.7575,
+              "vector_score": 0.098803,
+              "keyword_matched": [
+                "归一化"
+              ]
+            },
+            {
+              "rank": 5,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 1,
+              "score": 0.353653,
+              "bm25_score": 4.911305,
+              "vector_score": 0.119804,
+              "keyword_matched": [
+                "归一化"
+              ]
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：因为只关心方向不关心长度，文本向量通常先做 L2 归一化，归一化之后两个单位向量的点积就等于余弦相似度，从而把相似度计算简化成一次点积。[1] 加权融合的公式是 score = alpha * 归一化后的 BM25 分数 + (1 - alpha) * 归一化后的向量分数。[2] 归一化因子使用当前文档长度除以平均文档长度。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_title": "02-向量检索与余弦相似度",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.257,
+          "latency_ms": 3.39,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 5,
+          "question": "哈希向量化如何保证同一个词总是落到同一个桶？",
+          "expected_doc": "02-向量检索与余弦相似度.md",
+          "expected_doc_id": "dda755a9e7cc47e0",
+          "keywords": [
+            "hashlib",
+            "确定性"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00001",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 1,
+              "score": 1.0,
+              "bm25_score": 33.029026,
+              "vector_score": 0.35578,
+              "keyword_matched": [
+                "hashlib"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 0,
+              "score": 0.541914,
+              "bm25_score": 20.892939,
+              "vector_score": 0.160551,
+              "keyword_matched": [
+                "确定性"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.391736,
+              "bm25_score": 9.1252,
+              "vector_score": 0.180449,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.34735,
+              "bm25_score": 5.491727,
+              "vector_score": 0.188005,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.295121,
+              "bm25_score": 7.617888,
+              "vector_score": 0.127938,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：维度越低，不同词项容易落到同一个桶，产生噪声。[1] 做法是对文本做分词，把每个词项用哈希函数映射到固定维度中的一个桶，并使用第二个哈希值决定正负号，把词频权重累加到对应桶里，最后做 L2 归一化。[2] 入库前应统一换行符，并把全角英文字母和数字转成半角，避免同一个词因为全角半角差异被当成两个词。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00001",
+              "doc_title": "02-向量检索与余弦相似度",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_title": "02-向量检索与余弦相似度",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.277,
+          "latency_ms": 3.928,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 6,
+          "question": "混合检索加权融合里的 alpha 参数代表什么？",
+          "expected_doc": "03-混合检索与RRF.md",
+          "expected_doc_id": "c6a14d7131bc48d2",
+          "keywords": [
+            "alpha",
+            "权重"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 32.230717,
+              "vector_score": 0.255243,
+              "keyword_matched": [
+                "alpha",
+                "权重"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 1,
+              "score": 0.457932,
+              "bm25_score": 12.564623,
+              "vector_score": 0.134266,
+              "keyword_matched": [
+                "权重"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.307735,
+              "bm25_score": 9.648666,
+              "vector_score": 0.080684,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.303425,
+              "bm25_score": 3.12732,
+              "vector_score": 0.130128,
+              "keyword_matched": [
+                "权重"
+              ]
+            },
+            {
+              "rank": 5,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 0.211163,
+              "bm25_score": 2.679437,
+              "vector_score": 0.086577,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：加权融合的公式是 score = alpha * 归一化后的 BM25 分数 + (1 - alpha) * 归一化后的向量分数。[1] 如果两路分数都比较可靠、且可以离线调参，加权融合通常上限更高[2] 缺点是它不理解同义词和语义，查询词与文档用词不一致时就容易漏召回，因此常与向量检索组合成混合检索。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.263,
+          "latency_ms": 3.261,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 7,
+          "question": "RRF 倒数排名融合的公式是什么？",
+          "expected_doc": "03-混合检索与RRF.md",
+          "expected_doc_id": "c6a14d7131bc48d2",
+          "keywords": [
+            "倒数排名融合",
+            "rank"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.989688,
+              "bm25_score": 29.1351,
+              "vector_score": 0.279301,
+              "keyword_matched": [
+                "倒数排名融合"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 1,
+              "score": 0.974448,
+              "bm25_score": 29.748634,
+              "vector_score": 0.265028,
+              "keyword_matched": [
+                "倒数排名融合",
+                "rank"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.508488,
+              "bm25_score": 11.61444,
+              "vector_score": 0.174998,
+              "keyword_matched": [
+                "倒数排名融合"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 0,
+              "score": 0.246576,
+              "bm25_score": 3.229509,
+              "vector_score": 0.107417,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "a44824a8c268481a-c00000",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 0,
+              "score": 0.208689,
+              "bm25_score": 0.0,
+              "vector_score": 0.116574,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：加权融合的公式是 score = alpha * 归一化后的 BM25 分数 + (1 - alpha) * 归一化后的向量分数。[1] 倒数排名融合（Reciprocal Rank Fusion，简称 RRF）只使用每一路的名次，不使用原始分数，因此天然规避了量纲不一致的问题。[2] 可以在二元组之外，额外维护一个小型领域词典，把「余弦相似度」「倒数排名融合」「引用溯源」这类术语整体作为一个词项加入索引。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.224,
+          "latency_ms": 3.281,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 8,
+          "question": "中文检索为什么可以使用二元组分词？",
+          "expected_doc": "04-中文分词与二元组.md",
+          "expected_doc_id": "264239971b454e90",
+          "keywords": [
+            "二元组",
+            "词典"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 32.193652,
+              "vector_score": 0.258133,
+              "keyword_matched": [
+                "二元组",
+                "词典"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 1,
+              "score": 0.291793,
+              "bm25_score": 4.27903,
+              "vector_score": 0.116333,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 0,
+              "score": 0.281838,
+              "bm25_score": 5.89269,
+              "vector_score": 0.098255,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "a44824a8c268481a-c00000",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 0,
+              "score": 0.278315,
+              "bm25_score": 1.568061,
+              "vector_score": 0.131112,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 0,
+              "score": 0.274439,
+              "bm25_score": 9.01447,
+              "vector_score": 0.069404,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：二元组（bigram）方案把连续的汉字两两组合成词项，例如「向量检索」会被拆成「向量」「量检」「检索」三个二元组。[1] 静态资源可以使用带哈希文件名的强缓存加很长的 max-age[2] 检索增强生成（Retrieval-Augmented Generation，简称 RAG）先用检索器从知识库中找出与问题相关的片段，再把这些片段作为上下文交给大语言模型生成回答。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_title": "13-HTTP缓存与状态码",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.456,
+          "latency_ms": 3.486,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 9,
+          "question": "停用词在检索中起什么作用？",
+          "expected_doc": "04-中文分词与二元组.md",
+          "expected_doc_id": "264239971b454e90",
+          "keywords": [
+            "停用词",
+            "噪声"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 1.0,
+              "bm25_score": 12.538305,
+              "vector_score": 0.168837,
+              "keyword_matched": [
+                "停用词",
+                "噪声"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.793455,
+              "bm25_score": 12.357444,
+              "vector_score": 0.101527,
+              "keyword_matched": [
+                "停用词",
+                "噪声"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 0.485739,
+              "bm25_score": 3.087587,
+              "vector_score": 0.122444,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.470005,
+              "bm25_score": 6.09051,
+              "vector_score": 0.076695,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "1500de36f6604d3e-c00001",
+              "doc_id": "1500de36f6604d3e",
+              "doc_title": "09-异步入库流水线",
+              "seq": 1,
+              "score": 0.42149,
+              "bm25_score": 5.052627,
+              "vector_score": 0.074289,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：文停用词比如「的」「了」「和」「是」「如何」「怎么」在检索和句子打分中贡献很低，可以过滤掉，减少噪声。[1] 中文停用词比如「的」「了」「和」「是」「如何」「怎么」在检索和句子打分中贡献很低，可以过滤掉，减少噪声。[2] BM25 是一种经典的关键词检索打分算法，属于概率检索模型。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.218,
+          "latency_ms": 3.347,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 10,
+          "question": "文本分块时 chunk_size 和重叠该怎么设置？",
+          "expected_doc": "05-文本分块策略.md",
+          "expected_doc_id": "b0c0db0f0e4e4ad5",
+          "keywords": [
+            "chunk_size",
+            "重叠"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00000",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 23.143603,
+              "vector_score": 0.170756,
+              "keyword_matched": [
+                "chunk_size",
+                "重叠"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00001",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 1,
+              "score": 0.648304,
+              "bm25_score": 18.036086,
+              "vector_score": 0.088332,
+              "keyword_matched": [
+                "chunk_size",
+                "重叠"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d26d9f2138bf437c-c00001",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 1,
+              "score": 0.530912,
+              "bm25_score": 6.99627,
+              "vector_score": 0.129694,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d26d9f2138bf437c-c00000",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 0,
+              "score": 0.470514,
+              "bm25_score": 9.742359,
+              "vector_score": 0.088806,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.392679,
+              "bm25_score": 5.957263,
+              "vector_score": 0.090152,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：重叠（overlap）指相邻分块之间共享的字符数，通常取 chunk_size 的百分之十左右。[1] chunk_size、重叠比例这类参数不要写死，应该通过环境变量或接口参数可配置，方便针对不同语料做实验。[2] 建议同时设置 busy_timeout，让并发写等待而不是立刻报错。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00000",
+              "doc_title": "05-文本分块策略",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00001",
+              "doc_title": "05-文本分块策略",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d26d9f2138bf437c-c00001",
+              "doc_title": "08-SQLite事务与索引",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.216,
+          "latency_ms": 3.494,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 11,
+          "question": "分块时如何避免把完整句子切断？",
+          "expected_doc": "05-文本分块策略.md",
+          "expected_doc_id": "b0c0db0f0e4e4ad5",
+          "keywords": [
+            "句子边界",
+            "滑动窗口"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00000",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 20.791158,
+              "vector_score": 0.221967,
+              "keyword_matched": [
+                "句子边界",
+                "滑动窗口"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 1,
+              "score": 0.577122,
+              "bm25_score": 7.264154,
+              "vector_score": 0.178652,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.569655,
+              "bm25_score": 11.892938,
+              "vector_score": 0.12592,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d26d9f2138bf437c-c00001",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 1,
+              "score": 0.493369,
+              "bm25_score": 4.49478,
+              "vector_score": 0.171037,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.424277,
+              "bm25_score": 5.957263,
+              "vector_score": 0.124751,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：分块结束位置到下一分块开始位置之间保留重叠长度，并把下一个分块的起点向前吸附到最近的句子开头，保证每个分块都从完整句子开始。[1] 引用指向的分块与句子无关[2] 标点本身不进入索引，但会用于句子切分，因此不能提前删除，需要在完成分句之后再丢弃。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00000",
+              "doc_title": "05-文本分块策略",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.418,
+          "latency_ms": 4.045,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 12,
+          "question": "RAG 回答里的引用有什么意义？",
+          "expected_doc": "06-引用溯源与RAG.md",
+          "expected_doc_id": "e69edfc84f504c9a",
+          "keywords": [
+            "引用",
+            "幻觉"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 1,
+              "score": 0.982896,
+              "bm25_score": 13.782537,
+              "vector_score": 0.146013,
+              "keyword_matched": [
+                "引用"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 0,
+              "score": 0.980273,
+              "bm25_score": 13.238755,
+              "vector_score": 0.151185,
+              "keyword_matched": [
+                "引用",
+                "幻觉"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.725664,
+              "bm25_score": 8.747025,
+              "vector_score": 0.12347,
+              "keyword_matched": [
+                "引用"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.335097,
+              "bm25_score": 4.008151,
+              "vector_score": 0.057357,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "ba8827dd8ca94212-c00001",
+              "doc_id": "ba8827dd8ca94212",
+              "doc_title": "15-单元测试与pytest",
+              "seq": 1,
+              "score": 0.257227,
+              "bm25_score": 0.0,
+              "vector_score": 0.077778,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：回答没有引用标记[1] 相比让模型凭参数记忆回答，RAG 能接入私有文档、支持实时更新，并且可以给出引用来源。[2] 引用可溯源率统计回答中的引用标记能成功映射到真实分块的比例。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_title": "10-检索评估指标",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.299,
+          "latency_ms": 4.373,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 13,
+          "question": "引用可溯源率是怎么统计的？",
+          "expected_doc": "06-引用溯源与RAG.md",
+          "expected_doc_id": "e69edfc84f504c9a",
+          "keywords": [
+            "引用可溯源率",
+            "引用标记数"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 0,
+              "score": 0.935675,
+              "bm25_score": 14.849242,
+              "vector_score": 0.140362,
+              "keyword_matched": []
+            },
+            {
+              "rank": 2,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 1,
+              "score": 0.922518,
+              "bm25_score": 17.041635,
+              "vector_score": 0.118611,
+              "keyword_matched": [
+                "引用可溯源率",
+                "引用标记数"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.797351,
+              "bm25_score": 16.282764,
+              "vector_score": 0.089724,
+              "keyword_matched": [
+                "引用可溯源率"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.469191,
+              "bm25_score": 6.689961,
+              "vector_score": 0.076612,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 1,
+              "score": 0.420351,
+              "bm25_score": 0.0,
+              "vector_score": 0.118003,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：引用可溯源包含两层含义。[1] 引用可溯源率等于能够成功映射到真实分块的引用标记数除以引用标记总数。[2] 引用可溯源率统计回答中的引用标记能成功映射到真实分块的比例。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_title": "10-检索评估指标",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.388,
+          "latency_ms": 5.091,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 14,
+          "question": "FastAPI 中如何定义路由？",
+          "expected_doc": "07-FastAPI入门.md",
+          "expected_doc_id": "d20b85a497254091",
+          "keywords": [
+            "装饰器",
+            "app.get"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 10.479636,
+              "vector_score": 0.133743,
+              "keyword_matched": [
+                "装饰器",
+                "app.get"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "d20b85a497254091-c00001",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 1,
+              "score": 0.602477,
+              "bm25_score": 7.950586,
+              "vector_score": 0.059687,
+              "keyword_matched": [
+                "装饰器"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "dda755a9e7cc47e0-c00001",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 1,
+              "score": 0.456994,
+              "bm25_score": 0.0,
+              "vector_score": 0.122239,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.347461,
+              "bm25_score": 2.779447,
+              "vector_score": 0.057469,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.347012,
+              "bm25_score": 1.729413,
+              "vector_score": 0.07075,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：FastAPI 支持同步函数和异步函数两种路由。[1] FastAPI 支持同步函数和异步函数两种路由。[2]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_title": "07-FastAPI入门",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "d20b85a497254091-c00001",
+              "doc_title": "07-FastAPI入门",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2
+          ],
+          "resolved_markers": 2,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.231,
+          "latency_ms": 3.617,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 15,
+          "question": "SQLite 的 WAL 模式有什么好处？",
+          "expected_doc": "08-SQLite事务与索引.md",
+          "expected_doc_id": "d26d9f2138bf437c",
+          "keywords": [
+            "WAL",
+            "并发"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "d26d9f2138bf437c-c00000",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 13.107816,
+              "vector_score": 0.089074,
+              "keyword_matched": [
+                "wal",
+                "并发"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 0.404862,
+              "bm25_score": 0.0,
+              "vector_score": 0.072125,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.390522,
+              "bm25_score": 2.779447,
+              "vector_score": 0.050683,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.376668,
+              "bm25_score": 4.008151,
+              "vector_score": 0.039865,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.350246,
+              "bm25_score": 0.0,
+              "vector_score": 0.062395,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：WAL 是 Write-Ahead Logging 的缩写，日志先行模式。[1]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "d26d9f2138bf437c-c00000",
+              "doc_title": "08-SQLite事务与索引",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1
+          ],
+          "resolved_markers": 1,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.236,
+          "latency_ms": 3.031,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 16,
+          "question": "重复上传同一份文档为什么要做幂等设计？",
+          "expected_doc": "09-异步入库流水线.md",
+          "expected_doc_id": "1500de36f6604d3e",
+          "keywords": [
+            "幂等",
+            "内容哈希"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "1500de36f6604d3e-c00001",
+              "doc_id": "1500de36f6604d3e",
+              "doc_title": "09-异步入库流水线",
+              "seq": 1,
+              "score": 1.0,
+              "bm25_score": 34.520518,
+              "vector_score": 0.20851,
+              "keyword_matched": [
+                "幂等",
+                "内容哈希"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "1500de36f6604d3e-c00000",
+              "doc_id": "1500de36f6604d3e",
+              "doc_title": "09-异步入库流水线",
+              "seq": 0,
+              "score": 0.903926,
+              "bm25_score": 30.808958,
+              "vector_score": 0.190864,
+              "keyword_matched": [
+                "幂等"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 1,
+              "score": 0.413117,
+              "bm25_score": 4.365663,
+              "vector_score": 0.145909,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 1,
+              "score": 0.28978,
+              "bm25_score": 0.599207,
+              "vector_score": 0.117225,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "a44824a8c268481a-c00000",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 0,
+              "score": 0.235959,
+              "bm25_score": 0.0,
+              "vector_score": 0.0984,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：用户可能会重复上传同一份文档，刷新页面、网络重试、多个入口都会造成重复。[1] 用户可能会重复上传同一份文档，刷新页面、网络重试、多个入口都会造成重复。[2] 接口返回 202 时通常配合轮询或轮询接口查询任务状态，这与异步任务的设计是配套的。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "1500de36f6604d3e-c00001",
+              "doc_title": "09-异步入库流水线",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "1500de36f6604d3e-c00000",
+              "doc_title": "09-异步入库流水线",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_title": "13-HTTP缓存与状态码",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.265,
+          "latency_ms": 3.104,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 17,
+          "question": "Recall@5 指标如何定义？",
+          "expected_doc": "10-检索评估指标.md",
+          "expected_doc_id": "891f739c40434c9e",
+          "keywords": [
+            "Recall@5",
+            "命中"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 14.4861,
+              "vector_score": 0.281314,
+              "keyword_matched": [
+                "recall@5",
+                "命中"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.391549,
+              "bm25_score": 2.976621,
+              "vector_score": 0.162492,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 0,
+              "score": 0.24432,
+              "bm25_score": 2.05596,
+              "vector_score": 0.097535,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "a44824a8c268481a-c00000",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 0,
+              "score": 0.195839,
+              "bm25_score": 0.0,
+              "vector_score": 0.110184,
+              "keyword_matched": [
+                "命中"
+              ]
+            },
+            {
+              "rank": 5,
+              "chunk_id": "891f739c40434c9e-c00001",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 1,
+              "score": 0.19207,
+              "bm25_score": 3.667718,
+              "vector_score": 0.036838,
+              "keyword_matched": [
+                "命中"
+              ]
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：工程上常写写 Recall@5，表示只看前五个结果。[1] BM25 常用的 IDF 形式是 ln(1 + (N - df + 0.5) / (df + 0.5))，其中 N 是文档总数，df 是包含该词的文档数。[2] 请求体推荐用 Pydantic 的 BaseModel 定义，字段类型、范围校验、必填与可选都可以通过 Field 声明。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_title": "10-检索评估指标",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_title": "07-FastAPI入门",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.202,
+          "latency_ms": 3.431,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 18,
+          "question": "Docker 镜像分层有什么好处？",
+          "expected_doc": "11-Docker容器基础.md",
+          "expected_doc_id": "da33b98a62ba45ea",
+          "keywords": [
+            "分层",
+            "构建缓存"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "da33b98a62ba45ea-c00000",
+              "doc_id": "da33b98a62ba45ea",
+              "doc_title": "11-Docker容器基础",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 23.332388,
+              "vector_score": 0.192403,
+              "keyword_matched": [
+                "分层",
+                "构建缓存"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "da33b98a62ba45ea-c00001",
+              "doc_id": "da33b98a62ba45ea",
+              "doc_title": "11-Docker容器基础",
+              "seq": 1,
+              "score": 0.761175,
+              "bm25_score": 16.615599,
+              "vector_score": 0.155889,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 0,
+              "score": 0.25282,
+              "bm25_score": 2.271962,
+              "vector_score": 0.078552,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.235857,
+              "bm25_score": 4.008151,
+              "vector_score": 0.057707,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.221339,
+              "bm25_score": 0.0,
+              "vector_score": 0.085173,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：Docker 把应用及其依赖打包成镜像，再以容器的方式运行。[1] docker build 根据 Dockerfile 构建镜像，docker run 启动容器，docker ps 查看运行中的容器，docker logs 查看日志，docker exec 进入容器执行命令，docker images 列出本地镜像。[2]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "da33b98a62ba45ea-c00000",
+              "doc_title": "11-Docker容器基础",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "da33b98a62ba45ea-c00001",
+              "doc_title": "11-Docker容器基础",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2
+          ],
+          "resolved_markers": 2,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.22,
+          "latency_ms": 4.402,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 19,
+          "question": "Git 中 rebase 和 merge 有什么区别？",
+          "expected_doc": "12-Git分支与合并.md",
+          "expected_doc_id": "dc1236431ecd4b7e",
+          "keywords": [
+            "rebase",
+            "merge"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.924333,
+              "bm25_score": 11.508647,
+              "vector_score": 0.136367,
+              "keyword_matched": [
+                "merge"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "dc1236431ecd4b7e-c00000",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 0,
+              "score": 0.921448,
+              "bm25_score": 13.560864,
+              "vector_score": 0.114943,
+              "keyword_matched": [
+                "rebase",
+                "merge"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 0.423254,
+              "bm25_score": 0.0,
+              "vector_score": 0.115436,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d26d9f2138bf437c-c00001",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 1,
+              "score": 0.388444,
+              "bm25_score": 0.0,
+              "vector_score": 0.105942,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00001",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 1,
+              "score": 0.380237,
+              "bm25_score": 0.0,
+              "vector_score": 0.103703,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：冲突期间不要慌，可以随时用 git merge --abort 放弃合并回到之前的状态。[1] merge 把另一个分支的改动合并进当前分支。[2]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_title": "12-Git分支与合并",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "dc1236431ecd4b7e-c00000",
+              "doc_title": "12-Git分支与合并",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2
+          ],
+          "resolved_markers": 2,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.222,
+          "latency_ms": 3.511,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 20,
+          "question": "HTTP 304 状态码表示什么？",
+          "expected_doc": "13-HTTP缓存与状态码.md",
+          "expected_doc_id": "a44824a8c268481a",
+          "keywords": [
+            "304",
+            "协商缓存"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "a44824a8c268481a-c00000",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 0,
+              "score": 1.0,
+              "bm25_score": 18.231809,
+              "vector_score": 0.22931,
+              "keyword_matched": [
+                "304",
+                "协商缓存"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 1,
+              "score": 0.841033,
+              "bm25_score": 13.764923,
+              "vector_score": 0.212586,
+              "keyword_matched": [
+                "304",
+                "协商缓存"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 0,
+              "score": 0.402855,
+              "bm25_score": 7.850464,
+              "vector_score": 0.086018,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.331283,
+              "bm25_score": 5.16622,
+              "vector_score": 0.086955,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "d20b85a497254091-c00001",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 1,
+              "score": 0.31128,
+              "bm25_score": 5.134311,
+              "vector_score": 0.078183,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：ETag 是资源内容的指纹，服务器收到 If-None-Match 后对比当前资源的 ETag，如果资源没有变化就返回 304 状态码，响应体为空，浏览器继续使用本地缓存。[1] 304 表示 Not Modified，资源未修改，通常出现在协商缓存命中时。[2] FastAPI 会在进入处理函数之前完成校验，校验失败自动返回 422 状态码并给出字段级错误信息。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "a44824a8c268481a-c00000",
+              "doc_title": "13-HTTP缓存与状态码",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_title": "13-HTTP缓存与状态码",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_title": "07-FastAPI入门",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.234,
+          "latency_ms": 4.229,
+          "llm_provider": "mock"
+        }
+      ]
+    },
+    "rrf": {
+      "metrics": {
+        "questions": 20,
+        "recall_at_5": 1.0,
+        "recall_hits": 20,
+        "markers": 55,
+        "resolved_markers": 55,
+        "citation_traceability_rate": 1.0,
+        "answer_level_traceability_rate": 1.0,
+        "answers_without_citations": 0,
+        "avg_latency_ms": 3.601,
+        "p50_latency_ms": 3.63,
+        "p95_latency_ms": 4.138,
+        "avg_retrieval_latency_ms": 0.288,
+        "avg_citations": 2.75
+      },
+      "records": [
+        {
+          "id": 1,
+          "question": "BM25 中的 k1 参数有什么作用？",
+          "expected_doc": "01-bm25-原理.md",
+          "expected_doc_id": "d3c8b70825734cc6",
+          "keywords": [
+            "k1",
+            "饱和"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 8.974231,
+              "vector_score": 0.223004,
+              "keyword_matched": [
+                "k1",
+                "饱和"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.032258,
+              "bm25_score": 6.64534,
+              "vector_score": 0.13683,
+              "keyword_matched": [
+                "k1",
+                "饱和"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.031025,
+              "bm25_score": 4.56497,
+              "vector_score": 0.073948,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "ba8827dd8ca94212-c00000",
+              "doc_id": "ba8827dd8ca94212",
+              "doc_title": "15-单元测试与pytest",
+              "seq": 0,
+              "score": 0.03101,
+              "bm25_score": 3.864769,
+              "vector_score": 0.08521,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.03055,
+              "bm25_score": 4.008151,
+              "vector_score": 0.06341,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：公式中 k1 参数控制饱和的速度，k1 越大，饱和越慢，词频高的文档优势越明显[1] 所有查询词的贡献相加就是 BM25 总分。[2] BM25 的分数是无界的正数，可能几十也可能几百[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.238,
+          "latency_ms": 3.321,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 2,
+          "question": "BM25 的 b 参数如何影响文档长度归一化？",
+          "expected_doc": "01-bm25-原理.md",
+          "expected_doc_id": "d3c8b70825734cc6",
+          "keywords": [
+            "归一化",
+            "0.75"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 32.407331,
+              "vector_score": 0.335241,
+              "keyword_matched": [
+                "归一化",
+                "0.75"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.032002,
+              "bm25_score": 14.742556,
+              "vector_score": 0.18942,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.031754,
+              "bm25_score": 12.546147,
+              "vector_score": 0.233522,
+              "keyword_matched": [
+                "归一化"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.031258,
+              "bm25_score": 13.521415,
+              "vector_score": 0.133043,
+              "keyword_matched": [
+                "归一化"
+              ]
+            },
+            {
+              "rank": 5,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 1,
+              "score": 0.030777,
+              "bm25_score": 8.748156,
+              "vector_score": 0.149337,
+              "keyword_matched": [
+                "归一化"
+              ]
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：b 参数控制文档长度归一化的强度，取值范围是 0 到 1。[1] 综合起来，一个查询词对文档的贡献等于 IDF 乘以饱和后的词频项 tf * (k1 + 1) / (tf + k1 * (1 - b + b * dl / avgdl))，其中 dl 是文档长度，avgdl 是平均文档长度。[2] 加权融合的公式是 score = alpha * 归一化后的 BM25 分数 + (1 - alpha) * 归一化后的向量分数。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.334,
+          "latency_ms": 3.799,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 3,
+          "question": "余弦相似度是怎么计算的？",
+          "expected_doc": "02-向量检索与余弦相似度.md",
+          "expected_doc_id": "dda755a9e7cc47e0",
+          "keywords": [
+            "点积",
+            "模长"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 0,
+              "score": 0.032522,
+              "bm25_score": 25.78881,
+              "vector_score": 0.119613,
+              "keyword_matched": [
+                "点积",
+                "模长"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.032266,
+              "bm25_score": 12.975048,
+              "vector_score": 0.13583,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.032002,
+              "bm25_score": 13.848784,
+              "vector_score": 0.077591,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00001",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 1,
+              "score": 0.030077,
+              "bm25_score": 1.933181,
+              "vector_score": 0.043824,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.02971,
+              "bm25_score": 3.2082,
+              "vector_score": 0.037158,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：余弦相似度衡量两个向量方向上的接近程度，计算公式是两个向量的点积除以它们模长的乘积。[1] 余弦相似度的分数在负一到一之间。[2] 可以在二元组之外，额外维护一个小型领域词典，把「余弦相似度」「倒数排名融合」「引用溯源」这类术语整体作为一个词项加入索引。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_title": "02-向量检索与余弦相似度",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.27,
+          "latency_ms": 3.838,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 4,
+          "question": "为什么文本向量要先做 L2 归一化？",
+          "expected_doc": "02-向量检索与余弦相似度.md",
+          "expected_doc_id": "dda755a9e7cc47e0",
+          "keywords": [
+            "L2",
+            "归一化"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 21.370812,
+              "vector_score": 0.250903,
+              "keyword_matched": [
+                "l2",
+                "归一化"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.032258,
+              "bm25_score": 10.32472,
+              "vector_score": 0.203341,
+              "keyword_matched": [
+                "归一化"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 0.031746,
+              "bm25_score": 8.165721,
+              "vector_score": 0.127722,
+              "keyword_matched": [
+                "归一化"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00001",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 1,
+              "score": 0.03101,
+              "bm25_score": 7.7575,
+              "vector_score": 0.098803,
+              "keyword_matched": [
+                "归一化"
+              ]
+            },
+            {
+              "rank": 5,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.030536,
+              "bm25_score": 6.948396,
+              "vector_score": 0.08593,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：因为只关心方向不关心长度，文本向量通常先做 L2 归一化，归一化之后两个单位向量的点积就等于余弦相似度，从而把相似度计算简化成一次点积。[1] 加权融合的公式是 score = alpha * 归一化后的 BM25 分数 + (1 - alpha) * 归一化后的向量分数。[2] 归一化因子使用当前文档长度除以平均文档长度。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_title": "02-向量检索与余弦相似度",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.324,
+          "latency_ms": 3.78,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 5,
+          "question": "哈希向量化如何保证同一个词总是落到同一个桶？",
+          "expected_doc": "02-向量检索与余弦相似度.md",
+          "expected_doc_id": "dda755a9e7cc47e0",
+          "keywords": [
+            "hashlib",
+            "确定性"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00001",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 1,
+              "score": 0.032787,
+              "bm25_score": 33.029026,
+              "vector_score": 0.35578,
+              "keyword_matched": [
+                "hashlib"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 0,
+              "score": 0.031754,
+              "bm25_score": 20.892939,
+              "vector_score": 0.160551,
+              "keyword_matched": [
+                "确定性"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.031258,
+              "bm25_score": 9.1252,
+              "vector_score": 0.180449,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.030622,
+              "bm25_score": 5.491727,
+              "vector_score": 0.188005,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.030077,
+              "bm25_score": 7.617888,
+              "vector_score": 0.127938,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：维度越低，不同词项容易落到同一个桶，产生噪声。[1] 做法是对文本做分词，把每个词项用哈希函数映射到固定维度中的一个桶，并使用第二个哈希值决定正负号，把词频权重累加到对应桶里，最后做 L2 归一化。[2] 入库前应统一换行符，并把全角英文字母和数字转成半角，避免同一个词因为全角半角差异被当成两个词。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "dda755a9e7cc47e0-c00001",
+              "doc_title": "02-向量检索与余弦相似度",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_title": "02-向量检索与余弦相似度",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.301,
+          "latency_ms": 3.128,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 6,
+          "question": "混合检索加权融合里的 alpha 参数代表什么？",
+          "expected_doc": "03-混合检索与RRF.md",
+          "expected_doc_id": "c6a14d7131bc48d2",
+          "keywords": [
+            "alpha",
+            "权重"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 32.230717,
+              "vector_score": 0.255243,
+              "keyword_matched": [
+                "alpha",
+                "权重"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 1,
+              "score": 0.032258,
+              "bm25_score": 12.564623,
+              "vector_score": 0.134266,
+              "keyword_matched": [
+                "权重"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.030579,
+              "bm25_score": 3.12732,
+              "vector_score": 0.130128,
+              "keyword_matched": [
+                "权重"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.030579,
+              "bm25_score": 9.648666,
+              "vector_score": 0.080684,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 0.029437,
+              "bm25_score": 2.679437,
+              "vector_score": 0.086577,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：加权融合的公式是 score = alpha * 归一化后的 BM25 分数 + (1 - alpha) * 归一化后的向量分数。[1] 如果两路分数都比较可靠、且可以离线调参，加权融合通常上限更高[2] 中文句子没有空格分隔，检索系统必须先确定词项边界。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.236,
+          "latency_ms": 3.829,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 7,
+          "question": "RRF 倒数排名融合的公式是什么？",
+          "expected_doc": "03-混合检索与RRF.md",
+          "expected_doc_id": "c6a14d7131bc48d2",
+          "keywords": [
+            "倒数排名融合",
+            "rank"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 0,
+              "score": 0.032522,
+              "bm25_score": 29.1351,
+              "vector_score": 0.279301,
+              "keyword_matched": [
+                "倒数排名融合"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 1,
+              "score": 0.032522,
+              "bm25_score": 29.748634,
+              "vector_score": 0.265028,
+              "keyword_matched": [
+                "倒数排名融合",
+                "rank"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.031746,
+              "bm25_score": 11.61444,
+              "vector_score": 0.174998,
+              "keyword_matched": [
+                "倒数排名融合"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 0,
+              "score": 0.030769,
+              "bm25_score": 3.229509,
+              "vector_score": 0.107417,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 0,
+              "score": 0.02901,
+              "bm25_score": 2.271962,
+              "vector_score": 0.068827,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：加权融合的公式是 score = alpha * 归一化后的 BM25 分数 + (1 - alpha) * 归一化后的向量分数。[1] 倒数排名融合（Reciprocal Rank Fusion，简称 RRF）只使用每一路的名次，不使用原始分数，因此天然规避了量纲不一致的问题。[2] 可以在二元组之外，额外维护一个小型领域词典，把「余弦相似度」「倒数排名融合」「引用溯源」这类术语整体作为一个词项加入索引。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "c6a14d7131bc48d2-c00000",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_title": "03-混合检索与RRF",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.241,
+          "latency_ms": 3.201,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 8,
+          "question": "中文检索为什么可以使用二元组分词？",
+          "expected_doc": "04-中文分词与二元组.md",
+          "expected_doc_id": "264239971b454e90",
+          "keywords": [
+            "二元组",
+            "词典"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 32.193652,
+              "vector_score": 0.258133,
+              "keyword_matched": [
+                "二元组",
+                "词典"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 0,
+              "score": 0.03125,
+              "bm25_score": 5.89269,
+              "vector_score": 0.098255,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_id": "dda755a9e7cc47e0",
+              "doc_title": "02-向量检索与余弦相似度",
+              "seq": 0,
+              "score": 0.031054,
+              "bm25_score": 9.01447,
+              "vector_score": 0.069404,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 1,
+              "score": 0.031025,
+              "bm25_score": 4.27903,
+              "vector_score": 0.116333,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00001",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 1,
+              "score": 0.030769,
+              "bm25_score": 4.296706,
+              "vector_score": 0.083533,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：二元组（bigram）方案把连续的汉字两两组合成词项，例如「向量检索」会被拆成「向量」「量检」「检索」三个二元组。[1] 检索增强生成（Retrieval-Augmented Generation，简称 RAG）先用检索器从知识库中找出与问题相关的片段，再把这些片段作为上下文交给大语言模型生成回答。[2] 做法是对文本做分词，把每个词项用哈希函数映射到固定维度中的一个桶，并使用第二个哈希值决定正负号，把词频权重累加到对应桶里，最后做 L2 归一化。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "dda755a9e7cc47e0-c00000",
+              "doc_title": "02-向量检索与余弦相似度",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.283,
+          "latency_ms": 3.696,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 9,
+          "question": "停用词在检索中起什么作用？",
+          "expected_doc": "04-中文分词与二元组.md",
+          "expected_doc_id": "264239971b454e90",
+          "keywords": [
+            "停用词",
+            "噪声"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.032787,
+              "bm25_score": 12.538305,
+              "vector_score": 0.168837,
+              "keyword_matched": [
+                "停用词",
+                "噪声"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.031754,
+              "bm25_score": 12.357444,
+              "vector_score": 0.101527,
+              "keyword_matched": [
+                "停用词",
+                "噪声"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 0,
+              "score": 0.030798,
+              "bm25_score": 3.087587,
+              "vector_score": 0.122444,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.030579,
+              "bm25_score": 6.09051,
+              "vector_score": 0.076695,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "1500de36f6604d3e-c00001",
+              "doc_id": "1500de36f6604d3e",
+              "doc_title": "09-异步入库流水线",
+              "seq": 1,
+              "score": 0.030118,
+              "bm25_score": 5.052627,
+              "vector_score": 0.074289,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：文停用词比如「的」「了」「和」「是」「如何」「怎么」在检索和句子打分中贡献很低，可以过滤掉，减少噪声。[1] 中文停用词比如「的」「了」「和」「是」「如何」「怎么」在检索和句子打分中贡献很低，可以过滤掉，减少噪声。[2] BM25 是一种经典的关键词检索打分算法，属于概率检索模型。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d3c8b70825734cc6-c00000",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.237,
+          "latency_ms": 3.565,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 10,
+          "question": "文本分块时 chunk_size 和重叠该怎么设置？",
+          "expected_doc": "05-文本分块策略.md",
+          "expected_doc_id": "b0c0db0f0e4e4ad5",
+          "keywords": [
+            "chunk_size",
+            "重叠"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00000",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 23.143603,
+              "vector_score": 0.170756,
+              "keyword_matched": [
+                "chunk_size",
+                "重叠"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "d26d9f2138bf437c-c00001",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 1,
+              "score": 0.031754,
+              "bm25_score": 6.99627,
+              "vector_score": 0.129694,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00001",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 1,
+              "score": 0.031514,
+              "bm25_score": 18.036086,
+              "vector_score": 0.088332,
+              "keyword_matched": [
+                "chunk_size",
+                "重叠"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d26d9f2138bf437c-c00000",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 0,
+              "score": 0.031498,
+              "bm25_score": 9.742359,
+              "vector_score": 0.088806,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.031258,
+              "bm25_score": 5.957263,
+              "vector_score": 0.090152,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：重叠（overlap）指相邻分块之间共享的字符数，通常取 chunk_size 的百分之十左右。[1] 建议同时设置 busy_timeout，让并发写等待而不是立刻报错。[2] chunk_size、重叠比例这类参数不要写死，应该通过环境变量或接口参数可配置，方便针对不同语料做实验。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00000",
+              "doc_title": "05-文本分块策略",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "d26d9f2138bf437c-c00001",
+              "doc_title": "08-SQLite事务与索引",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00001",
+              "doc_title": "05-文本分块策略",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.235,
+          "latency_ms": 3.274,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 11,
+          "question": "分块时如何避免把完整句子切断？",
+          "expected_doc": "05-文本分块策略.md",
+          "expected_doc_id": "b0c0db0f0e4e4ad5",
+          "keywords": [
+            "句子边界",
+            "滑动窗口"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00000",
+              "doc_id": "b0c0db0f0e4e4ad5",
+              "doc_title": "05-文本分块策略",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 20.791158,
+              "vector_score": 0.221967,
+              "keyword_matched": [
+                "句子边界",
+                "滑动窗口"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 1,
+              "score": 0.031754,
+              "bm25_score": 7.264154,
+              "vector_score": 0.178652,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.031514,
+              "bm25_score": 11.892938,
+              "vector_score": 0.12592,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d26d9f2138bf437c-c00001",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 1,
+              "score": 0.030366,
+              "bm25_score": 4.49478,
+              "vector_score": 0.171037,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "1500de36f6604d3e-c00001",
+              "doc_id": "1500de36f6604d3e",
+              "doc_title": "09-异步入库流水线",
+              "seq": 1,
+              "score": 0.03031,
+              "bm25_score": 6.151931,
+              "vector_score": 0.108015,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：分块结束位置到下一分块开始位置之间保留重叠长度，并把下一个分块的起点向前吸附到最近的句子开头，保证每个分块都从完整句子开始。[1] 引用指向的分块与句子无关[2] 标点本身不进入索引，但会用于句子切分，因此不能提前删除，需要在完成分句之后再丢弃。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "b0c0db0f0e4e4ad5-c00000",
+              "doc_title": "05-文本分块策略",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_title": "04-中文分词与二元组",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.593,
+          "latency_ms": 3.881,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 12,
+          "question": "RAG 回答里的引用有什么意义？",
+          "expected_doc": "06-引用溯源与RAG.md",
+          "expected_doc_id": "e69edfc84f504c9a",
+          "keywords": [
+            "引用",
+            "幻觉"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 0,
+              "score": 0.032522,
+              "bm25_score": 13.238755,
+              "vector_score": 0.151185,
+              "keyword_matched": [
+                "引用",
+                "幻觉"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 1,
+              "score": 0.032522,
+              "bm25_score": 13.782537,
+              "vector_score": 0.146013,
+              "keyword_matched": [
+                "引用"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.031746,
+              "bm25_score": 8.747025,
+              "vector_score": 0.12347,
+              "keyword_matched": [
+                "引用"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.03101,
+              "bm25_score": 4.008151,
+              "vector_score": 0.057357,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "c6a14d7131bc48d2-c00001",
+              "doc_id": "c6a14d7131bc48d2",
+              "doc_title": "03-混合检索与RRF",
+              "seq": 1,
+              "score": 0.030303,
+              "bm25_score": 2.285828,
+              "vector_score": 0.048032,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：相比让模型凭参数记忆回答，RAG 能接入私有文档、支持实时更新，并且可以给出引用来源。[1] 回答没有引用标记[2] 引用可溯源率统计回答中的引用标记能成功映射到真实分块的比例。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_title": "10-检索评估指标",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.251,
+          "latency_ms": 4.128,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 13,
+          "question": "引用可溯源率是怎么统计的？",
+          "expected_doc": "06-引用溯源与RAG.md",
+          "expected_doc_id": "e69edfc84f504c9a",
+          "keywords": [
+            "引用可溯源率",
+            "引用标记数"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 1,
+              "score": 0.032522,
+              "bm25_score": 17.041635,
+              "vector_score": 0.118611,
+              "keyword_matched": [
+                "引用可溯源率",
+                "引用标记数"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 0,
+              "score": 0.032266,
+              "bm25_score": 14.849242,
+              "vector_score": 0.140362,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.031754,
+              "bm25_score": 16.282764,
+              "vector_score": 0.089724,
+              "keyword_matched": [
+                "引用可溯源率"
+              ]
+            },
+            {
+              "rank": 4,
+              "chunk_id": "264239971b454e90-c00000",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 0,
+              "score": 0.03101,
+              "bm25_score": 6.689961,
+              "vector_score": 0.076612,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 1,
+              "score": 0.029572,
+              "bm25_score": 0.0,
+              "vector_score": 0.118003,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：引用可溯源率等于能够成功映射到真实分块的引用标记数除以引用标记总数。[1] 引用可溯源包含两层含义。[2] 引用可溯源率统计回答中的引用标记能成功映射到真实分块的比例。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "e69edfc84f504c9a-c00001",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_title": "06-引用溯源与RAG",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_title": "10-检索评估指标",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.446,
+          "latency_ms": 4.326,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 14,
+          "question": "FastAPI 中如何定义路由？",
+          "expected_doc": "07-FastAPI入门.md",
+          "expected_doc_id": "d20b85a497254091",
+          "keywords": [
+            "装饰器",
+            "app.get"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 10.479636,
+              "vector_score": 0.133743,
+              "keyword_matched": [
+                "装饰器",
+                "app.get"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "d20b85a497254091-c00001",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 1,
+              "score": 0.031054,
+              "bm25_score": 7.950586,
+              "vector_score": 0.059687,
+              "keyword_matched": [
+                "装饰器"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.030579,
+              "bm25_score": 2.779447,
+              "vector_score": 0.057469,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.029857,
+              "bm25_score": 1.729413,
+              "vector_score": 0.07075,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "b29636fefa78439d-c00001",
+              "doc_id": "b29636fefa78439d",
+              "doc_title": "14-Python协程与asyncio",
+              "seq": 1,
+              "score": 0.029514,
+              "bm25_score": 2.386945,
+              "vector_score": 0.047143,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：FastAPI 支持同步函数和异步函数两种路由。[1] FastAPI 支持同步函数和异步函数两种路由。[2]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_title": "07-FastAPI入门",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "d20b85a497254091-c00001",
+              "doc_title": "07-FastAPI入门",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2
+          ],
+          "resolved_markers": 2,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.244,
+          "latency_ms": 3.275,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 15,
+          "question": "SQLite 的 WAL 模式有什么好处？",
+          "expected_doc": "08-SQLite事务与索引.md",
+          "expected_doc_id": "d26d9f2138bf437c",
+          "keywords": [
+            "WAL",
+            "并发"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "d26d9f2138bf437c-c00000",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 13.107816,
+              "vector_score": 0.089074,
+              "keyword_matched": [
+                "wal",
+                "并发"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.031025,
+              "bm25_score": 4.008151,
+              "vector_score": 0.039865,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.030536,
+              "bm25_score": 2.779447,
+              "vector_score": 0.050683,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d26d9f2138bf437c-c00001",
+              "doc_id": "d26d9f2138bf437c",
+              "doc_title": "08-SQLite事务与索引",
+              "seq": 1,
+              "score": 0.030415,
+              "bm25_score": 5.364274,
+              "vector_score": 0.018886,
+              "keyword_matched": [
+                "wal",
+                "并发"
+              ]
+            },
+            {
+              "rank": 5,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.029572,
+              "bm25_score": 0.0,
+              "vector_score": 0.062395,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：WAL 是 Write-Ahead Logging 的缩写，日志先行模式。[1]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "d26d9f2138bf437c-c00000",
+              "doc_title": "08-SQLite事务与索引",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1
+          ],
+          "resolved_markers": 1,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.251,
+          "latency_ms": 3.223,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 16,
+          "question": "重复上传同一份文档为什么要做幂等设计？",
+          "expected_doc": "09-异步入库流水线.md",
+          "expected_doc_id": "1500de36f6604d3e",
+          "keywords": [
+            "幂等",
+            "内容哈希"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "1500de36f6604d3e-c00001",
+              "doc_id": "1500de36f6604d3e",
+              "doc_title": "09-异步入库流水线",
+              "seq": 1,
+              "score": 0.032787,
+              "bm25_score": 34.520518,
+              "vector_score": 0.20851,
+              "keyword_matched": [
+                "幂等",
+                "内容哈希"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "1500de36f6604d3e-c00000",
+              "doc_id": "1500de36f6604d3e",
+              "doc_title": "09-异步入库流水线",
+              "seq": 0,
+              "score": 0.032258,
+              "bm25_score": 30.808958,
+              "vector_score": 0.190864,
+              "keyword_matched": [
+                "幂等"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 1,
+              "score": 0.031258,
+              "bm25_score": 4.365663,
+              "vector_score": 0.145909,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.029418,
+              "bm25_score": 2.537159,
+              "vector_score": 0.070261,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "891f739c40434c9e-c00001",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 1,
+              "score": 0.029412,
+              "bm25_score": 2.571393,
+              "vector_score": 0.070082,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：用户可能会重复上传同一份文档，刷新页面、网络重试、多个入口都会造成重复。[1] 用户可能会重复上传同一份文档，刷新页面、网络重试、多个入口都会造成重复。[2] 接口返回 202 时通常配合轮询或轮询接口查询任务状态，这与异步任务的设计是配套的。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "1500de36f6604d3e-c00001",
+              "doc_title": "09-异步入库流水线",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "1500de36f6604d3e-c00000",
+              "doc_title": "09-异步入库流水线",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_title": "13-HTTP缓存与状态码",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.299,
+          "latency_ms": 3.659,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 17,
+          "question": "Recall@5 指标如何定义？",
+          "expected_doc": "10-检索评估指标.md",
+          "expected_doc_id": "891f739c40434c9e",
+          "keywords": [
+            "Recall@5",
+            "命中"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 14.4861,
+              "vector_score": 0.281314,
+              "keyword_matched": [
+                "recall@5",
+                "命中"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_id": "d3c8b70825734cc6",
+              "doc_title": "01-bm25-原理",
+              "seq": 1,
+              "score": 0.032002,
+              "bm25_score": 2.976621,
+              "vector_score": 0.162492,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 0,
+              "score": 0.030777,
+              "bm25_score": 2.05596,
+              "vector_score": 0.097535,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "891f739c40434c9e-c00001",
+              "doc_id": "891f739c40434c9e",
+              "doc_title": "10-检索评估指标",
+              "seq": 1,
+              "score": 0.030415,
+              "bm25_score": 3.667718,
+              "vector_score": 0.036838,
+              "keyword_matched": [
+                "命中"
+              ]
+            },
+            {
+              "rank": 5,
+              "chunk_id": "a44824a8c268481a-c00000",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 0,
+              "score": 0.029387,
+              "bm25_score": 0.0,
+              "vector_score": 0.110184,
+              "keyword_matched": [
+                "命中"
+              ]
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：工程上常写写 Recall@5，表示只看前五个结果。[1] BM25 常用的 IDF 形式是 ln(1 + (N - df + 0.5) / (df + 0.5))，其中 N 是文档总数，df 是包含该词的文档数。[2] 请求体推荐用 Pydantic 的 BaseModel 定义，字段类型、范围校验、必填与可选都可以通过 Field 声明。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "891f739c40434c9e-c00000",
+              "doc_title": "10-检索评估指标",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "d3c8b70825734cc6-c00001",
+              "doc_title": "01-bm25-原理",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_title": "07-FastAPI入门",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.234,
+          "latency_ms": 3.517,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 18,
+          "question": "Docker 镜像分层有什么好处？",
+          "expected_doc": "11-Docker容器基础.md",
+          "expected_doc_id": "da33b98a62ba45ea",
+          "keywords": [
+            "分层",
+            "构建缓存"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "da33b98a62ba45ea-c00000",
+              "doc_id": "da33b98a62ba45ea",
+              "doc_title": "11-Docker容器基础",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 23.332388,
+              "vector_score": 0.192403,
+              "keyword_matched": [
+                "分层",
+                "构建缓存"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "da33b98a62ba45ea-c00001",
+              "doc_id": "da33b98a62ba45ea",
+              "doc_title": "11-Docker容器基础",
+              "seq": 1,
+              "score": 0.032258,
+              "bm25_score": 16.615599,
+              "vector_score": 0.155889,
+              "keyword_matched": []
+            },
+            {
+              "rank": 3,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.030798,
+              "bm25_score": 4.008151,
+              "vector_score": 0.057707,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "e69edfc84f504c9a-c00000",
+              "doc_id": "e69edfc84f504c9a",
+              "doc_title": "06-引用溯源与RAG",
+              "seq": 0,
+              "score": 0.030777,
+              "bm25_score": 2.271962,
+              "vector_score": 0.078552,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "264239971b454e90-c00001",
+              "doc_id": "264239971b454e90",
+              "doc_title": "04-中文分词与二元组",
+              "seq": 1,
+              "score": 0.030579,
+              "bm25_score": 0.0,
+              "vector_score": 0.085173,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：Docker 把应用及其依赖打包成镜像，再以容器的方式运行。[1] docker build 根据 Dockerfile 构建镜像，docker run 启动容器，docker ps 查看运行中的容器，docker logs 查看日志，docker exec 进入容器执行命令，docker images 列出本地镜像。[2]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "da33b98a62ba45ea-c00000",
+              "doc_title": "11-Docker容器基础",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "da33b98a62ba45ea-c00001",
+              "doc_title": "11-Docker容器基础",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2
+          ],
+          "resolved_markers": 2,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.231,
+          "latency_ms": 3.191,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 19,
+          "question": "Git 中 rebase 和 merge 有什么区别？",
+          "expected_doc": "12-Git分支与合并.md",
+          "expected_doc_id": "dc1236431ecd4b7e",
+          "keywords": [
+            "rebase",
+            "merge"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.032522,
+              "bm25_score": 11.508647,
+              "vector_score": 0.136367,
+              "keyword_matched": [
+                "merge"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "dc1236431ecd4b7e-c00000",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 0,
+              "score": 0.032266,
+              "bm25_score": 13.560864,
+              "vector_score": 0.114943,
+              "keyword_matched": [
+                "rebase",
+                "merge"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "a44824a8c268481a-c00000",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 0,
+              "score": 0.030118,
+              "bm25_score": 2.008158,
+              "vector_score": 0.076556,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "d20b85a497254091-c00001",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 1,
+              "score": 0.030077,
+              "bm25_score": 1.50182,
+              "vector_score": 0.078183,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 1,
+              "score": 0.029644,
+              "bm25_score": 1.373045,
+              "vector_score": 0.084835,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：冲突期间不要慌，可以随时用 git merge --abort 放弃合并回到之前的状态。[1] merge 把另一个分支的改动合并进当前分支。[2]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_title": "12-Git分支与合并",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "dc1236431ecd4b7e-c00000",
+              "doc_title": "12-Git分支与合并",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2
+          ],
+          "resolved_markers": 2,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.254,
+          "latency_ms": 3.788,
+          "llm_provider": "mock"
+        },
+        {
+          "id": 20,
+          "question": "HTTP 304 状态码表示什么？",
+          "expected_doc": "13-HTTP缓存与状态码.md",
+          "expected_doc_id": "a44824a8c268481a",
+          "keywords": [
+            "304",
+            "协商缓存"
+          ],
+          "hit": true,
+          "recall_at_5": 1.0,
+          "top5": [
+            {
+              "rank": 1,
+              "chunk_id": "a44824a8c268481a-c00000",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 0,
+              "score": 0.032787,
+              "bm25_score": 18.231809,
+              "vector_score": 0.22931,
+              "keyword_matched": [
+                "304",
+                "协商缓存"
+              ]
+            },
+            {
+              "rank": 2,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_id": "a44824a8c268481a",
+              "doc_title": "13-HTTP缓存与状态码",
+              "seq": 1,
+              "score": 0.032258,
+              "bm25_score": 13.764923,
+              "vector_score": 0.212586,
+              "keyword_matched": [
+                "304",
+                "协商缓存"
+              ]
+            },
+            {
+              "rank": 3,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 0,
+              "score": 0.031498,
+              "bm25_score": 7.850464,
+              "vector_score": 0.086018,
+              "keyword_matched": []
+            },
+            {
+              "rank": 4,
+              "chunk_id": "dc1236431ecd4b7e-c00001",
+              "doc_id": "dc1236431ecd4b7e",
+              "doc_title": "12-Git分支与合并",
+              "seq": 1,
+              "score": 0.031498,
+              "bm25_score": 5.16622,
+              "vector_score": 0.086955,
+              "keyword_matched": []
+            },
+            {
+              "rank": 5,
+              "chunk_id": "d20b85a497254091-c00001",
+              "doc_id": "d20b85a497254091",
+              "doc_title": "07-FastAPI入门",
+              "seq": 1,
+              "score": 0.030536,
+              "bm25_score": 5.134311,
+              "vector_score": 0.078183,
+              "keyword_matched": []
+            }
+          ],
+          "answer": "根据知识库中检索到的内容：ETag 是资源内容的指纹，服务器收到 If-None-Match 后对比当前资源的 ETag，如果资源没有变化就返回 304 状态码，响应体为空，浏览器继续使用本地缓存。[1] 304 表示 Not Modified，资源未修改，通常出现在协商缓存命中时。[2] FastAPI 会在进入处理函数之前完成校验，校验失败自动返回 422 状态码并给出字段级错误信息。[3]",
+          "citations": [
+            {
+              "index": 1,
+              "chunk_id": "a44824a8c268481a-c00000",
+              "doc_title": "13-HTTP缓存与状态码",
+              "valid": true
+            },
+            {
+              "index": 2,
+              "chunk_id": "a44824a8c268481a-c00001",
+              "doc_title": "13-HTTP缓存与状态码",
+              "valid": true
+            },
+            {
+              "index": 3,
+              "chunk_id": "d20b85a497254091-c00000",
+              "doc_title": "07-FastAPI入门",
+              "valid": true
+            }
+          ],
+          "markers": [
+            1,
+            2,
+            3
+          ],
+          "resolved_markers": 3,
+          "citation_traceable": 1.0,
+          "answer_level_traceable": true,
+          "retrieval_latency_ms": 0.253,
+          "latency_ms": 3.6,
+          "llm_provider": "mock"
+        }
+      ]
+    }
+  }
+}
